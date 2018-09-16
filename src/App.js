@@ -1,25 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './styles/App.css';
-import Button from '@material-ui/core/Button';
+import React ,{ Component } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import Login from './components/auth/Login';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-          <Button variant="contained" color="primary">
-              Hello World
-          </Button>
-      </div>
-    );
-  }
+class App extends Component{
+    constructor(props){
+        super(props);
+        // this.state = {'term': false};
+    }
+
+    render(){
+        return (
+            <div>
+                <Switch>
+                    <Route path="/login" component={Login}/>
+                    <Redirect to="/login" />
+                </Switch>
+            </div>
+        )
+    }
 }
 
 export default App;
+
+
+
+// {
+//     this.state.term ?
+//         <Route path="/login" component={Login}/> :
+//         <Route path="/logout" component={Logout}/>
+// }
