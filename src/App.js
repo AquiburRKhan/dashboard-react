@@ -1,9 +1,10 @@
+// @flow
 import React ,{ Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './components/auth/Login';
 
-class App extends Component{
-    constructor(props){
+class App extends Component<any>{
+    constructor(props: Object){
         super(props);
         // this.state = {'term': false};
     }
