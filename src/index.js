@@ -6,9 +6,10 @@ import { BrowserRouter } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga'
 import registerServiceWorker from './registerServiceWorker';
 import reducers from './redux/reducers/index';
+import './utils/rehive';
 import App from './App';
 
-import rootSaga from './redux/saga/index';
+import rootSaga from './redux/sagas/index';
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();

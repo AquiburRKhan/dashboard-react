@@ -4,10 +4,10 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './components/auth/Login';
 
 class App extends Component<any>{
-    constructor(props: Object){
-        super(props);
-        // this.state = {'term': false};
-    }
+    // constructor(props: Object){
+    //     super(props);
+    //     // this.state = {'term': false};
+    // }
 
     render(){
         return (

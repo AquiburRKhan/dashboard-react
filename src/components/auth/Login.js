@@ -6,7 +6,7 @@ class Login extends Component{
     render(){
         return (
             <div>
-                <Button>
+                <Button variant="contained" color="primary">
                     Login
                 </Button>
             </div>
