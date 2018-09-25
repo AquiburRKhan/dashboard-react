@@ -7,8 +7,14 @@ import { Button } from '@material-ui/core';
 class Login extends Component{
     constructor(props){
         super(props);
+        console.log(this.props)
         this.handleLoginClick = this.handleLoginClick.bind(this);
         this.handleAuthenticationClick = this.handleAuthenticationClick.bind(this);
+        this.goToCurrencies = this.goToCurrencies.bind(this);
+    }
+
+    goToCurrencies() {
+        this.props.history.push('/private');
     }
 
     handleAuthenticationClick() {
@@ -29,6 +35,11 @@ class Login extends Component{
                 <br/>
                 <Button variant="contained" onClick={this.handleAuthenticationClick} color="primary">
                     authentication state
+                </Button>
+                <br/>
+                <br/>
+                <Button variant="contained" onClick={this.goToCurrencies} color="primary">
+                    currencies
                 </Button>
             </div>
         )
