@@ -1,24 +1,18 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loginAdmin } from "../../redux/actions/authActions"
+import { loginAdmin } from "../../redux/actions/auth/loginActions"
 import { Button } from '@material-ui/core';
 
 class Login extends Component{
     constructor(props){
         super(props);
-        console.log(this.props)
         this.handleLoginClick = this.handleLoginClick.bind(this);
-        this.handleAuthenticationClick = this.handleAuthenticationClick.bind(this);
         this.goToCurrencies = this.goToCurrencies.bind(this);
     }
 
     goToCurrencies() {
-        this.props.history.push('/private');
-    }
-
-    handleAuthenticationClick() {
-        console.log(this.props.isAuthenticated);
+        this.props.history.push('/currencies');
     }
 
     handleLoginClick() {
@@ -33,11 +27,6 @@ class Login extends Component{
                 </Button>
                 <br/>
                 <br/>
-                <Button variant="contained" onClick={this.handleAuthenticationClick} color="primary">
-                    authentication state
-                </Button>
-                <br/>
-                <br/>
                 <Button variant="contained" onClick={this.goToCurrencies} color="primary">
                     currencies
                 </Button>
@@ -46,12 +35,12 @@ class Login extends Component{
     }
 }
 
-function mapStateToProps(state) {
-    return {isAuthenticated: state.auth.isAuthenticated};
-}
+// function mapStateToProps(state) {
+//     return {isAuthenticated: state.isAuthenticated};
+// }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({ loginAdmin },dispatch)
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+export default connect(null,mapDispatchToProps)(Login);

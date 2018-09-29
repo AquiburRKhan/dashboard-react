@@ -17,6 +17,8 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "redux": "^4.0.0",
+    "redux-form": "^7.4.2",
+    "redux-persist": "^5.10.0",
     "redux-saga": "^0.16.0",
     "rehive": "^1.20.15"
   },

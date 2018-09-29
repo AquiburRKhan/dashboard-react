@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST } from '../actions/actionTypes/index';
+import { LOGIN_REQUEST } from '../actionTypes/index';
 
 export function loginAdmin(loginCredentials) {
     return {

@@ -1,11 +1,20 @@
 // @flow
 import React ,{ Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
 import Login from './components/auth/Login';
 import Currencies from './components/currencies/Currencies';
+import { getLocalStorageValue } from "./utils/localStorageManagement";
 
 class PrivateRoute extends Component<any>{
+    constructor(props){
+        super(props);
+        this.state = {};
+        this.state.token = '';
+    }
+
+    componentWillMount() {
+        this.setState({ token: getLocalStorageValue('token') });
+    }
 
     render(){
         const { component: Component, ...rest } = this.props;
@@ -13,7 +22,7 @@ class PrivateRoute extends Component<any>{
             <Route
                 {...rest}
                 render={props =>
-                    this.props.isAuthenticated ? (
+                    this.state.token ? (
                         <Component {...props} />
                     ) : (
                         <Redirect
@@ -29,19 +38,13 @@ class PrivateRoute extends Component<any>{
     }
 }
 
-function mapStateToProps(state) {
-    return {isAuthenticated: state.auth.isAuthenticated};
-}
-
-const ConnectPrivateRoute = connect(mapStateToProps)(PrivateRoute);
-
 class App extends Component<any>{
     render(){
         return (
             <div>
                 <Switch>
                     <Route path="/login" component={Login}/>
-                    <ConnectPrivateRoute path="/private" component={Currencies} />
+                    <PrivateRoute path="/currencies" component={Currencies} />
                     <Redirect to="/login" />
                 </Switch>
             </div>
