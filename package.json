@@ -6,6 +6,7 @@
     "@material-ui/core": "^3.0.3",
     "@material-ui/icons": "^3.0.1",
     "big.js": "^5.1.2",
+    "env-cmd": "^8.0.2",
     "flow-bin": "^0.81.0",
     "font-awesome": "^4.7.0",
     "node-sass": "^4.9.3",
@@ -24,9 +25,11 @@
   },
   "scripts": {
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p start-js",
+    "start": "env-cmd .env npm-run-all -p start-js",
+    "start:staging": "env-cmd .env.staging npm-run-all -p start-js",
     "build-js": "react-scripts build",
-    "build": "npm-run-all build-js",
+    "build": "env-cmd .env npm-run-all build-js",
+    "build:staging": "env-cmd .env.staging npm-run-all build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "flow": "flow"
