@@ -1,21 +1,21 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getAdminUser } from "../../redux/actions/dashboard/adminUserActions"
+import { getLoggedInUser } from "../../modules/login"
 import { Button } from '@material-ui/core';
 
 class Currencies extends Component{
 
     componentWillMount() {
-        if(Object.keys(this.props.adminUser).length === 0){
-            this.props.getAdminUser();
+        if(Object.keys(this.props.loggedInUser).length === 0){
+            this.props.getLoggedInUser();
         }
     }
 
     render(){
-        const { adminUser } = this.props;
+        const { loggedInUser } = this.props;
 
-        if(!adminUser){
+        if(Object.keys(loggedInUser).length === 0){
             return <h1>Loading</h1>
         }
 
@@ -24,18 +24,19 @@ class Currencies extends Component{
                 <Button variant="contained"  color="primary">
                     Currencies component
                 </Button>
-                <h1>{adminUser.email}</h1>
+                <h1>{loggedInUser.email}</h1>
             </div>
         )
     }
 }
 
 function mapStateToProps(state) {
-    return {adminUser: state.adminUser};
+    console.log(state)
+    return {loggedInUser: state.loggedInUser};
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getAdminUser },dispatch)
+    return bindActionCreators({ getLoggedInUser },dispatch)
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Currencies);

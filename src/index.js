@@ -5,15 +5,13 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga'
 import registerServiceWorker from './registerServiceWorker';
-import reducers from './redux/reducers/index';
+import { rootReducer as reducers, rootSaga } from './modules/index';
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import './utils/rehive';
 import App from './App';
-
-import rootSaga from './redux/sagas/index';
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();

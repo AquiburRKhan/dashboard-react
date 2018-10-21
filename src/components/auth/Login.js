@@ -1,7 +1,7 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loginAdmin } from "../../redux/actions/auth/loginActions"
+import { loginAdmin } from "../../modules/login"
 import { Button } from '@material-ui/core';
 
 class Login extends Component{
