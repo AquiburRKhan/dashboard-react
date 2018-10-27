@@ -1,15 +1,23 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getLoggedInUser } from "../../modules/login"
-import { Button } from '@material-ui/core';
+import { getLoggedInUser } from "../modules/login"
+import PrimaryButton from '../components/buttons/PrimaryButton';
 
 class Currencies extends Component{
+    constructor(props){
+        super(props);
+        this.goToLogin = this.goToLogin.bind(this);
+    }
 
     componentWillMount() {
         if(Object.keys(this.props.loggedInUser).length === 0){
             this.props.getLoggedInUser();
         }
+    }
+
+    goToLogin() {
+        this.props.history.push('/login');
     }
 
     render(){
@@ -21,9 +29,7 @@ class Currencies extends Component{
 
         return (
             <div>
-                <Button variant="contained"  color="primary">
-                    Currencies component
-                </Button>
+                <PrimaryButton variant="contained" handleOnClick={this.goToLogin} text="Currencies component" />
                 <h1>{loggedInUser.email}</h1>
             </div>
         )

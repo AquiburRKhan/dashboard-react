@@ -1,9 +1,10 @@
 // @flow
 import React ,{ Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Login from './components/auth/Login';
-import Currencies from './components/currencies/Currencies';
+import Login from './pages/Login';
+import Currencies from './pages/Currencies';
 import { getLocalStorageValue } from "./utils/localStorageManagement";
+import './styles/styles.scss';
 
 class PrivateRoute extends Component<any>{
     constructor(props){
@@ -41,7 +42,7 @@ class PrivateRoute extends Component<any>{
 class App extends Component<any>{
     render(){
         return (
-            <div>
+            <div className="main-container">
                 <Switch>
                     <Route path="/login" component={Login}/>
                     <PrivateRoute path="/currencies" component={Currencies} />
@@ -53,11 +54,3 @@ class App extends Component<any>{
 }
 
 export default App;
-
-
-
-// {
-//     this.state.term ?
-//         <Route path="/login" component={Login}/> :
-//         <Route path="/logout" component={Logout}/>
-// }

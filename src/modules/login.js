@@ -22,17 +22,6 @@ export const getLoggedInUser = () => {
     }
 };
 
-export const reducer = (state = {}, action) => {
-    switch (action.type){
-        case LOGIN_REQUEST_SUCCESS:
-            return { ...state, ...action.user };
-        case GET_LOGGED_IN_USER_SUCCESS:
-            return { ...state, ...action.user };
-        default:
-            return state;
-    }
-};
-
 function* loginSaga(params) {
     try {
         const result = yield Rehive.auth.login(params.payload);
@@ -60,3 +49,14 @@ function* getLoggedInUserSaga() {
 export function* watchGetLoggedInUserSaga() {
     yield takeLatest(GET_LOGGED_IN_USER, getLoggedInUserSaga)
 }
+
+export const reducer = (state = {}, action) => {
+    switch (action.type){
+        case LOGIN_REQUEST_SUCCESS:
+            return { ...state, ...action.user };
+        case GET_LOGGED_IN_USER_SUCCESS:
+            return { ...state, ...action.user };
+        default:
+            return state;
+    }
+};

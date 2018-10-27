@@ -1,8 +1,10 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loginAdmin } from "../../modules/login"
-import { Button } from '@material-ui/core';
+import { loginAdmin } from "../modules/login"
+import PrimaryButton from '../components/buttons/PrimaryButton';
+import Grid from '@material-ui/core/Grid';
+import '../styles/styles.scss'
 
 class Login extends Component{
     constructor(props){
@@ -21,15 +23,15 @@ class Login extends Component{
 
     render(){
         return (
-            <div>
-                <Button variant="contained" onClick={this.handleLoginClick} color="primary">
-                    Login
-                </Button>
-                <br/>
-                <br/>
-                <Button variant="contained" onClick={this.goToCurrencies} color="primary">
-                    currencies
-                </Button>
+            <div className="auth-outer-div">
+                <Grid container>
+                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                        <PrimaryButton variant="contained" handleOnClick={this.handleLoginClick}  text="Login" />
+                        <br/>
+                        <br/>
+                        <PrimaryButton variant="contained" handleOnClick={this.goToCurrencies}  text="Currencies" />
+                    </Grid>
+                </Grid>
             </div>
         )
     }
