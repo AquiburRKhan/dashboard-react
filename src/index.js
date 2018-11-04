@@ -21,6 +21,7 @@ const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore);
 const persistConfig = {
     key: 'root',
     storage,
+    blacklist: ['form'],
     stateReconciler: autoMergeLevel2
 };
 
