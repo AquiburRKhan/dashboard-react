@@ -9,12 +9,13 @@ import LoginForm from "./login/LoginForm";
 class Login extends Component{
     constructor(props){
         super(props);
-        this.goToCurrencies = this.goToCurrencies.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    goToCurrencies() {
-        this.props.history.push('/currencies');
+    componentWillUpdate(nextProps, nextState) {
+        if(nextProps.loggedInUser && nextProps.loggedInUser.id){
+            this.props.history.push('/currencies');
+        }
     }
 
     handleSubmit(credentials) {
@@ -31,17 +32,12 @@ class Login extends Component{
     }
 }
 
-{/*<PrimaryButton variant="contained" handleOnClick={this.handleLoginClick}  text="Login" />*/}
-{/*<br/>*/}
-{/*<br/>*/}
-{/*<PrimaryButton variant="contained" handleOnClick={this.goToCurrencies}  text="Currencies" />*/}
-
-// function mapStateToProps(state) {
-//     return {isAuthenticated: state.isAuthenticated};
-// }
+function mapStateToProps(state) {
+    return {loggedInUser: state.loggedInUser};
+}
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({ loginAdmin },dispatch)
 }
 
-export default connect(null,mapDispatchToProps)(Login);
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

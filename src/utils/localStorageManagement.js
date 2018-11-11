@@ -9,3 +9,7 @@ export const setLocalStorageValue = (localStorageName, localStorageValue) => {
 export const deleteLocalStorageValue = localStorageName => {
     localStorage.removeItem(localStorageName);
 };
+
+export const clearAllLocalStorage = () => {
+    localStorage.clear();
+};

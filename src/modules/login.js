@@ -53,7 +53,7 @@ export function* watchGetLoggedInUserSaga() {
 export const reducer = (state = {}, action) => {
     switch (action.type){
         case LOGIN_REQUEST_SUCCESS:
-            return { ...state, ...action.user };
+            return { ...state, ...action.user};
         case GET_LOGGED_IN_USER_SUCCESS:
             return { ...state, ...action.user };
         default:

@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getLoggedInUser } from "../modules/login"
 import PrimaryButton from '../components/buttons/PrimaryButton';
+import { clearAllLocalStorage } from "../utils/localStorageManagement";
 
 class Currencies extends Component{
     constructor(props){
         super(props);
-        this.goToLogin = this.goToLogin.bind(this);
+        this.logoutUser = this.logoutUser.bind(this);
     }
 
     componentWillMount() {
@@ -16,7 +17,8 @@ class Currencies extends Component{
         }
     }
 
-    goToLogin() {
+    logoutUser() {
+        clearAllLocalStorage();
         this.props.history.push('/login');
     }
 
@@ -29,7 +31,7 @@ class Currencies extends Component{
 
         return (
             <div>
-                <PrimaryButton variant="contained" handleOnClick={this.goToLogin} text="Currencies component" />
+                <PrimaryButton variant="contained" handleOnClick={this.logoutUser} text="Logout" />
                 <h1>{loggedInUser.email}</h1>
             </div>
         )
@@ -37,7 +39,6 @@ class Currencies extends Component{
 }
 
 function mapStateToProps(state) {
-    console.log(state)
     return {loggedInUser: state.loggedInUser};
 }
 
