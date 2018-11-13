@@ -11,6 +11,8 @@ import storage from 'redux-persist/lib/storage'
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import './utils/rehive';
+import 'react-redux-toastr/src/styles/index.scss';
+import ReduxToastr from 'react-redux-toastr';
 import App from './App';
 
 // create the saga middleware
@@ -34,6 +36,15 @@ const persistor = persistStore(store);
 ReactDOM.render(
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
+            <ReduxToastr
+                timeOut={4000}
+                newestOnTop={false}
+                preventDuplicates
+                position="bottom-right"
+                transitionIn="fadeIn"
+                transitionOut="fadeOut"
+                progressBar
+                closeOnToastrClick/>
             <BrowserRouter>
                 <App />
             </BrowserRouter>

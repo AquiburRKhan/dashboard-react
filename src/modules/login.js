@@ -1,6 +1,5 @@
 import { r as Rehive } from '../utils/rehive';
 import { put, takeLatest } from 'redux-saga/effects';
-import { setLocalStorageValue } from '../utils/localStorageManagement';
 
 const LOGIN_REQUEST = 'login_request';
 const LOGIN_REQUEST_SUCCESS = 'login_request_success';
@@ -26,10 +25,10 @@ function* loginSaga(params) {
     try {
         const result = yield Rehive.auth.login(params.payload);
         // save token for services
-        setLocalStorageValue('TOKEN','Token ' + result.token);
+        //'Token ' + result.token
         yield put({ type: LOGIN_REQUEST_SUCCESS, user: result.user });
     } catch (error) {
-        // yield put({ type: LOGIN_REQUEST_FAILED, error: error.data });
+        yield put({ type: LOGIN_REQUEST_FAILED, error: error });
     }
 }
 
@@ -51,11 +50,32 @@ export function* watchGetLoggedInUserSaga() {
 }
 
 export const reducer = (state = {}, action) => {
+    let obj = {};
     switch (action.type){
         case LOGIN_REQUEST_SUCCESS:
-            return { ...state, ...action.user};
+            obj = {
+                adminUser: action.user,
+                error: null
+            };
+            return { ...state, ...obj};
+        case LOGIN_REQUEST_FAILED:
+            obj = {
+                adminUser: {},
+                error: action.error
+            };
+            return { ...state, ...obj};
         case GET_LOGGED_IN_USER_SUCCESS:
-            return { ...state, ...action.user };
+            obj = {
+                adminUser: action.user,
+                error: null
+            };
+            return { ...state, ...obj };
+        case GET_LOGGED_IN_USER_FAILED:
+            obj = {
+                adminUser: {},
+                error: action.error
+            };
+            return { ...state, ...obj};
         default:
             return state;
     }

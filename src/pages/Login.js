@@ -2,7 +2,7 @@ import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loginAdmin } from "../modules/login"
-import PrimaryButton from '../components/buttons/PrimaryButton';
+import { evaluateErrors } from "../utils/errorHandler";
 import AuthBox from '../components/auth/AuthBox';
 import LoginForm from "./login/LoginForm";
 
@@ -10,16 +10,24 @@ class Login extends Component{
     constructor(props){
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.errorToast = this.errorToast.bind(this);
     }
 
     componentWillUpdate(nextProps, nextState) {
-        if(nextProps.loggedInUser && nextProps.loggedInUser.id){
+        if(nextProps.adminUser && nextProps.adminUser.id){
             this.props.history.push('/currencies');
+        }
+        if(nextProps.error && Object.keys(nextProps.error).length > 0){
+            this.errorToast(nextProps.error)
         }
     }
 
     handleSubmit(credentials) {
         this.props.loginAdmin({user: credentials.email,company: credentials.companyID,password: credentials.password});
+    }
+
+    errorToast(error){
+        evaluateErrors(error);
     }
 
     render(){
@@ -33,7 +41,10 @@ class Login extends Component{
 }
 
 function mapStateToProps(state) {
-    return {loggedInUser: state.loggedInUser};
+    return {
+        adminUser: state.loggedInUser.adminUser,
+        error: state.loggedInUser.error
+    };
 }
 
 function mapDispatchToProps(dispatch) {

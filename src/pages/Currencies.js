@@ -12,7 +12,7 @@ class Currencies extends Component{
     }
 
     componentWillMount() {
-        if(Object.keys(this.props.loggedInUser).length === 0){
+        if(Object.keys(this.props.adminUser).length === 0){
             this.props.getLoggedInUser();
         }
     }
@@ -23,23 +23,23 @@ class Currencies extends Component{
     }
 
     render(){
-        const { loggedInUser } = this.props;
+        const { adminUser } = this.props;
 
-        if(Object.keys(loggedInUser).length === 0){
+        if(Object.keys(adminUser).length === 0){
             return <h1>Loading</h1>
         }
 
         return (
             <div>
                 <PrimaryButton variant="contained" handleOnClick={this.logoutUser} text="Logout" />
-                <h1>{loggedInUser.email}</h1>
+                <h1>{adminUser.email}</h1>
             </div>
         )
     }
 }
 
 function mapStateToProps(state) {
-    return {loggedInUser: state.loggedInUser};
+    return {adminUser: state.loggedInUser.adminUser};
 }
 
 function mapDispatchToProps(dispatch) {
