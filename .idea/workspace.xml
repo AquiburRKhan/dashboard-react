@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="631ba4f6-7b98-418f-9abb-6dac66ffd9ea" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utils/errorHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/index.js" afterPath="$PROJECT_DIR$/src/modules/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/login.js" afterPath="$PROJECT_DIR$/src/modules/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/Currencies.js" afterPath="$PROJECT_DIR$/src/pages/Currencies.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/Login.js" afterPath="$PROJECT_DIR$/src/pages/Login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -59,8 +53,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+            <state relative-caret-position="666">
+              <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
               <folding>
                 <element signature="e#9#50#0" expanded="true" />
               </folding>
@@ -129,7 +123,6 @@
         <option value="$PROJECT_DIR$/src/styles/_styles.scss" />
         <option value="$PROJECT_DIR$/src/styles/login.scss" />
         <option value="$PROJECT_DIR$/src/components/buttons/PrimaryButton.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/auth/AuthBox.js" />
         <option value="$PROJECT_DIR$/src/styles/_login.scss" />
@@ -147,6 +140,7 @@
         <option value="$PROJECT_DIR$/src/utils/errorHandler.js" />
         <option value="$PROJECT_DIR$/src/pages/Login.js" />
         <option value="$PROJECT_DIR$/src/utils/handleGeneratorFunctions.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
   </component>
@@ -320,12 +314,12 @@
       <workItem from="1540641474080" duration="7874000" />
       <workItem from="1540965447938" duration="18870000" />
       <workItem from="1541331524660" duration="1079000" />
-      <workItem from="1542117300359" duration="2214000" />
+      <workItem from="1542117300359" duration="2649000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128966000" />
+    <option name="totallyTimeSpent" value="129401000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="183" y="74" width="1863" height="1092" extended-state="6" />
@@ -627,8 +621,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        <state relative-caret-position="666">
+          <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
           <folding>
             <element signature="e#9#50#0" expanded="true" />
           </folding>

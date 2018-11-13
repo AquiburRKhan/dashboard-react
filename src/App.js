@@ -38,6 +38,7 @@ class PrivateRoute extends Component<any>{
         )
     }
 }
+//<PrivateRoute path="/" component={Layout} />
 
 class App extends Component<any>{
     render(){
