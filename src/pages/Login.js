@@ -15,7 +15,7 @@ class Login extends Component{
 
     componentWillUpdate(nextProps, nextState) {
         if(nextProps.adminUser && nextProps.adminUser.id){
-            this.props.history.push('/currencies');
+            this.props.history.push('/dashboard/currencies');
         }
         if(nextProps.error && Object.keys(nextProps.error).length > 0){
             this.errorToast(nextProps.error)
